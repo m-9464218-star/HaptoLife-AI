@@ -433,3 +433,108 @@ button.addEventListener(
 
     }
 );
+
+const scanButton = document.getElementById("scanVehicle");
+
+const scanAnimation = document.getElementById("scanAnimation");
+
+const repairGuide = document.getElementById("repairGuide");
+
+const watch = document.getElementById("watch");
+
+
+
+scanButton.onclick = function(){
+
+
+scanAnimation.innerHTML = 
+`
+🔍 Scanning vehicle...
+<br>
+AI analysing components...
+`;
+
+
+
+repairGuide.innerHTML="";
+
+watch.innerHTML=
+`
+⌚ Smart Watch:
+<br>
+Scanning vibration...
+`;
+
+
+
+setTimeout(()=>{
+
+
+scanAnimation.innerHTML=
+`
+✅ Object detected:
+<br>
+🚗 Vehicle Battery
+<br><br>
+⚠ Problem detected:
+<br>
+Battery connection issue
+`;
+
+
+
+repairGuide.innerHTML=
+`
+
+<h3>AI Repair Guidance</h3>
+
+
+<h4>Step 1</h4>
+Open vehicle bonnet
+
+<img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/car-2179220_1280.jpg">
+
+
+<h4>Step 2</h4>
+Locate battery position
+
+
+<h4>Step 3</h4>
+Check battery terminal connection
+
+
+<h4>Step 4</h4>
+Clean connection and test again
+
+
+`;
+
+
+
+watch.innerHTML=
+`
+⌚ Smart Watch:
+
+<br>
+
+〰️ Vibration 1:
+Open bonnet
+
+<br><br>
+
+〰️ Vibration 2:
+Check battery
+
+<br><br>
+
+〰️ Vibration 3:
+Complete repair
+
+`;
+
+
+
+},3000);
+
+
+};
