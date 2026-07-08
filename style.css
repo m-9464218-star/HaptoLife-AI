@@ -15,19 +15,19 @@ html{
 
 
 
+
 body{
-
-    font-family:Arial, Helvetica, sans-serif;
-
+    font-family:'Poppins',sans-serif;
     background:
-    radial-gradient(circle at top,#0f172a,#020617);
+        radial-gradient(circle at top right, #1e3a8a 0%, transparent 30%),
+        radial-gradient(circle at bottom left, #0ea5e9 0%, transparent 25%),
+        linear-gradient(135deg,#020617,#0f172a,#111827);
+
+    background-attachment: fixed;
 
     color:white;
-
     overflow-x:hidden;
-
 }
-
 
 
 /* Navigation */
@@ -415,13 +415,92 @@ button:hover{
 
 
 }
+++
+
+.glow{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+    animation:floatGlow 8s ease-in-out infinite;
+}
+
+.glow1{
+    width:300px;
+    height:300px;
+    background:#2563eb;
+    top:-100px;
+    right:-80px;
+}
+
+.glow2{
+    width:250px;
+    height:250px;
+    background:#06b6d4;
+    bottom:-80px;
+    left:-60px;
+    animation-delay:2s;
+}
+
+@keyframes floatGlow{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(40px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.stats{
+    display:flex;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    min-width:140px;
+    padding:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(56,189,248,.25);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s;
+}
+
+.stat:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(56,189,248,.35);
+}
+
+.stat h2{
+    color:#38bdf8;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.stat p{
+    color:#cbd5e1;
+    font-size:15px;
+}
+/* =====================
+   HOW IT WORKS
+===================== */
 
 
-
-/* About */
-
-
-.about{
+.workflow{
 
     padding:100px 80px;
 
@@ -431,66 +510,319 @@ button:hover{
 
 
 
-.about h1{
+.workflow h1{
 
     font-size:50px;
 
-    color:#38bdf8;
+    margin-bottom:20px;
 
 }
 
 
 
-.about p{
+.workflow-desc{
 
     max-width:800px;
 
-    margin:30px auto;
-
-
-    font-size:22px;
-
-    line-height:1.8;
-
+    margin:auto;
 
     color:#cbd5e1;
 
-}
+    font-size:20px;
 
-
-
-/* Mobile */
-
-
-@media(max-width:900px){
-
-
-.hero{
-
-    flex-direction:column;
+    line-height:1.7;
 
 }
 
 
-.hero-text{
+
+.steps{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:60px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.step-card{
+
+    width:260px;
+
+    padding:35px 25px;
+
+
+    background:
+    rgba(255,255,255,0.05);
+
+
+    border:
+
+    1px solid rgba(56,189,248,.25);
+
+
+    border-radius:25px;
+
+
+    backdrop-filter:blur(15px);
+
+
+    transition:.4s;
+
+}
+
+
+
+.step-card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:
+
+    0 0 35px rgba(56,189,248,.35);
+
+}
+
+
+
+.step-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.step-card h2{
+
+    color:#38bdf8;
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.step-card p{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+}
+/* ===========================
+   LIVE AI DEMO
+=========================== */
+
+#demoBox{
+
+    max-width:1100px;
+    margin:auto;
+    margin-top:50px;
+
+}
+
+#cameraView{
+
+    position:relative;
 
     width:100%;
 
+    max-width:850px;
+
+    margin:auto;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:2px solid #38bdf8;
+
+    box-shadow:0 0 30px rgba(56,189,248,.3);
+
 }
 
+#carImage{
 
-.hero-text h1{
+    width:100%;
 
-    font-size:45px;
+    display:block;
 
 }
 
+#scanOverlay{
 
-nav{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:0%;
+
+    background:rgba(56,189,248,.25);
+
+    transition:2.5s;
+
+}
+
+#startScan{
+
+    margin-top:35px;
+
+}
+
+#scanStatus{
+
+    margin-top:30px;
+
+    font-size:22px;
+
+    color:#38bdf8;
+
+    font-weight:bold;
+
+}
+
+#phoneScreen{
+
+    margin:40px auto;
+
+    max-width:700px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:#111827;
+
+    border:1px solid rgba(56,189,248,.3);
+
+    text-align:left;
+
+    display:none;
+
+}
+
+#phoneScreen h2{
+
+    color:#38bdf8;
+
+    margin-bottom:20px;
+
+}
+
+#stepContent{
+
+    font-size:19px;
+
+    line-height:1.8;
+
+}
+
+#watchBox{
+
+    display:none;
+
+    width:260px;
+
+    margin:30px auto;
 
     padding:20px;
 
+    border-radius:20px;
+
+    border:2px solid #38bdf8;
+
+    background:rgba(255,255,255,.05);
+
 }
 
+#nextArea{
+
+    display:none;
+
+    margin-top:25px;
+
+}
+
+#phoneFrame{
+
+    background:black;
+
+    border-radius:25px;
+
+    padding:20px;
+
+    min-height:350px;
+
+    border:8px solid #333;
+
+}
+
+#cameraHeader{
+
+    background:#38bdf8;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+/* Phone Scan Animation */
+
+#scanLine{
+
+    width:100%;
+    height:6px;
+
+    background:#38bdf8;
+
+    box-shadow:0 0 20px #38bdf8;
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    display:none;
+
+}
+
+.scanMove{
+
+    display:block !important;
+
+    animation:phoneScan 2.5s linear;
+}
+
+@keyframes phoneScan{
+
+    0%{
+        top:0;
+    }
+
+    100%{
+        top:300px;
+    }
 
 }
