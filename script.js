@@ -80,6 +80,10 @@ const device = new THREE.Mesh(
 
 scene.add(device);
 
+device.userData.scanning = false;
+
+
+
 
 
 // =====================
@@ -247,7 +251,31 @@ function animate(){
 
     // auto rotate
 
+ if(device.userData.scanning){
+
+    device.rotation.y += 0.05;
+
+    bodyMaterial.emissiveIntensity = 2;
+
+    device.scale.set(
+        1.05,
+        1.05,
+        1.05
+    );
+
+}else{
+
     device.rotation.y += 0.01;
+
+    bodyMaterial.emissiveIntensity = 0.35;
+
+    device.scale.set(
+        1,
+        1,
+        1
+    );
+
+}
     particles.rotation.y += 0.001;
 
 
@@ -434,107 +462,137 @@ button.addEventListener(
     }
 );
 
-const scanButton = document.getElementById("scanVehicle");
-
-const scanAnimation = document.getElementById("scanAnimation");
-
-const repairGuide = document.getElementById("repairGuide");
-
-const watch = document.getElementById("watch");
 
 
+// ======================
+// LIVE AI DEMO
+// ======================
 
-scanButton.onclick = function(){
+const startScan = document.getElementById("startScan");
+const scanOverlay = document.getElementById("scanOverlay");
+const scanStatus = document.getElementById("scanStatus");
+const phoneScreen = document.getElementById("phoneScreen");
+const watchBox = document.getElementById("watchBox");
+const nextArea = document.getElementById("nextArea");
+const nextStep = document.getElementById("nextStep");
+const stepContent = document.getElementById("stepContent");
+const phoneScanLine = document.getElementById("scanLine");
 
+let step = 0;
 
-scanAnimation.innerHTML = 
-`
-🔍 Scanning vehicle...
-<br>
-AI analysing components...
-`;
+const steps = [
 
+`<h3>🤖 AI Detection Complete</h3>
 
+Vehicle Detected:
+Toyota Corolla
 
-repairGuide.innerHTML="";
+Problem:
+🔋 Battery connection loose
 
-watch.innerHTML=
-`
+Confidence:
+98.7%`,
+
+`<h3>📱 Step 1</h3>
+
+Open the vehicle bonnet.
+
+<br><br>
+
 ⌚ Smart Watch:
-<br>
-Scanning vibration...
-`;
+Buzz...
+Please open the bonnet.`,
 
+`<h3>📱 Step 2</h3>
 
-
-setTimeout(()=>{
-
-
-scanAnimation.innerHTML=
-`
-✅ Object detected:
-<br>
-🚗 Vehicle Battery
-<br><br>
-⚠ Problem detected:
-<br>
-Battery connection issue
-`;
-
-
-
-repairGuide.innerHTML=
-`
-
-<h3>AI Repair Guidance</h3>
-
-
-<h4>Step 1</h4>
-Open vehicle bonnet
-
-<img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/car-2179220_1280.jpg">
-
-
-<h4>Step 2</h4>
-Locate battery position
-
-
-<h4>Step 3</h4>
-Check battery terminal connection
-
-
-<h4>Step 4</h4>
-Clean connection and test again
-
-
-`;
-
-
-
-watch.innerHTML=
-`
-⌚ Smart Watch:
-
-<br>
-
-〰️ Vibration 1:
-Open bonnet
+Locate the battery.
 
 <br><br>
 
-〰️ Vibration 2:
-Check battery
+AI highlights the battery position.
 
 <br><br>
 
-〰️ Vibration 3:
-Complete repair
+⌚ Buzz Buzz`,
 
-`;
+`<h3>📱 Step 3</h3>
 
+Disconnect the negative terminal.
 
+<br><br>
 
-},3000);
+⚠ Wear insulated gloves.
 
+<br><br>
 
-};
+⌚ Long vibration`,
+
+`<h3>✅ Step 4</h3>
+
+Reconnect the battery.
+
+<br><br>
+
+Run a quick battery test.
+
+<br><br>
+
+Vehicle repaired successfully! 🎉`
+
+];
+
+startScan.addEventListener("click", function(){
+
+    device.userData.scanning = true;
+
+   phoneScanLine.classList.add("scanMove");
+
+    scanStatus.innerHTML = "🔍 AI Scanning Vehicle...";
+
+    scanOverlay.style.height = "100%";
+
+    startScan.disabled = true;
+
+    setTimeout(function(){
+        device.userData.scanning = false;
+
+        scanStatus.innerHTML =
+        "✅ Vehicle detected successfully";
+
+        phoneScreen.style.display = "block";
+
+        watchBox.style.display = "block";
+
+        nextArea.style.display = "block";
+
+        step = 0;
+
+        stepContent.innerHTML = steps[step];
+
+        watchBox.innerHTML =
+        "⌚ Smart Watch<br><br>Connected<br>Vibration Ready";
+
+    },2500);
+
+});
+
+nextStep.addEventListener("click",function(){
+
+    step++;
+
+    if(step < steps.length){
+
+        stepContent.innerHTML = steps[step];
+
+        watchBox.innerHTML =
+        "⌚ Smart Watch<br><br>Vibration for Step " + step;
+
+    }else{
+
+        nextStep.disabled = true;
+
+        nextStep.innerHTML = "Demo Completed ✅";
+
+    }
+
+});
