@@ -7,9 +7,14 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
 <title>HaptoLife AI</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 
@@ -27,6 +32,8 @@
 
 
 <body>
+  <div class="glow glow1"></div>
+<div class="glow glow2"></div>
 
 
 
@@ -48,6 +55,9 @@ Home
 Technology
 </a>
 
+<a href="#process">
+How It Works
+</a>
 
 <a href="#demo">
 Demo
@@ -72,36 +82,42 @@ About
 
 <div class="hero-text">
 
-
 <h1>
-
-Future Healthcare
+AI-Powered
 <br>
-Powered by AI
-
+Haptic Learning
+<br>
+for Life Skills
 </h1>
 
-
-
 <p>
-
-HaptoLife AI combines artificial intelligence,
-smart sensors and haptic technology to create
-a safer and smarter healthcare experience.
-
+HaptoLife AI combines Artificial Intelligence,
+Computer Vision, AR Guidance and Haptic Feedback
+to teach students practical life skills through
+real-time interactive learning.
 </p>
 
-
-
 <button id="demoButton">
-
-Start AI Demo
-
+Launch AI Experience
 </button>
+<div class="stats">
 
+    <div class="stat">
+        <h2>98.7%</h2>
+        <p>AI Accuracy</p>
+    </div>
 
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>Learning Support</p>
+    </div>
 
+    <div class="stat">
+        <h2>5,000+</h2>
+        <p>Future Users</p>
+    </div>
 
+</div>
 <div id="scanBox">
 
 
@@ -239,142 +255,174 @@ critical conditions faster.
 
 </section>
 
-
-
-
-
-
-
-
-<section class="features" id="demo">
-
+<section class="workflow" id="process">
 
 <h1>
-
-AI Demonstration
-
+How HaptoLife AI Works
 </h1>
 
 
+<p class="workflow-desc">
+A smart ecosystem that combines Artificial Intelligence,
+AR Guidance and Haptic Feedback to teach practical life skills.
+</p>
 
 
-<div class="cards">
+
+<div class="steps">
 
 
-<div class="card demo-card">
+<div class="step-card">
 
+<div class="step-icon">
+📷
+</div>
 
 <h2>
-
-🚗 Vehicle Repair
-
+1. Scan Environment
 </h2>
 
-
 <p>
-
-AI detects problems and provides
-repair guidance.
-
+Smartphone camera scans objects
+and identifies the learning scenario.
 </p>
-
 
 </div>
 
 
 
 
+<div class="step-card">
 
-<div class="card demo-card">
-
+<div class="step-icon">
+🧠
+</div>
 
 <h2>
-
-💡 Equipment Repair
-
+2. AI Analysis
 </h2>
 
-
 <p>
-
-AI identifies issues and gives
-step-by-step solutions.
-
+AI Computer Vision analyzes objects,
+risks and provides intelligent solutions.
 </p>
-
 
 </div>
 
 
 
 
+<div class="step-card">
 
-
-<div class="card demo-card">
-
+<div class="step-icon">
+📱
+</div>
 
 <h2>
-
-❤️ Emergency Training
-
+3. AR Guidance
 </h2>
 
-
 <p>
-
-AI guides emergency response
-procedures.
-
+Interactive AR instructions show
+step-by-step guidance in real time.
 </p>
 
-
 </div>
 
 
 
+
+<div class="step-card">
+
+<div class="step-icon">
+⌚
 </div>
 
-
-
-<div id="demoResult">
-
-<h2>🚗 HaptoLife AI Vehicle Assistant</h2>
+<h2>
+4. Haptic Feedback
+</h2>
 
 <p>
-Scan your vehicle to start AI guidance.
+Smartwatch vibration guides users
+with physical feedback.
 </p>
 
-
-<button id="scanVehicle">
-🔍 Start AI Scan
-</button>
-
-
-<div id="scanAnimation">
-
-Waiting for scan...
-
-</div>
-
-
-<div id="repairGuide">
-
-
-</div>
-
-
-<div id="watch">
-
-⌚ Smart Watch:
-<br>
-Waiting...
-
 </div>
 
 
 </div>
 
+</section>
 
+<section class="features" id="demo">
+
+<h1>🚗 Live AI Demonstration</h1>
+
+<div id="demoBox">
+
+    <div id="cameraView">
+
+        <img id="carImage"
+        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000">
+
+        <div id="scanOverlay"></div>
+
+    </div>
+
+    <button id="startScan">
+        🔍 Start Live Scan
+    </button>
+
+    <div id="scanStatus">
+
+        Waiting to scan vehicle...
+
+    </div>
+
+    <div id="phoneScreen">
+
+       <h2>📱 HaptoLife AI Mobile Assistant</h2>
+
+<div id="phoneFrame">
+
+    <div id="scanLine"></div>
+
+    <div id="cameraHeader">
+
+        📷 Live Camera
+
+    </div>
+
+    <div id="stepContent">
+
+        Press "Start Live Scan"
+
+    </div>
+
+</div>
+    </div>
+
+    <div id="watchBox">
+
+        ⌚ Smart Watch
+
+        <br><br>
+
+        Waiting...
+
+    </div>
+
+    <div id="nextArea">
+
+        <button id="nextStep">
+
+            Next Step →
+
+        </button>
+
+    </div>
+
+</div>
 
 </section>
 
